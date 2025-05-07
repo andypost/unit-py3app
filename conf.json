@@ -1,0 +1,28 @@
+{
+    "access_log": "/dev/stdout",
+    "listeners": {
+        "*:8080": {
+            "pass": "applications/fastapi"
+        },
+        "*:8081": {
+            "pass": "applications/flask"
+        }
+    },
+
+    "applications": {
+        "fastapi": {
+            "type": "python",
+            "path": "/opt/",
+            "home": "/opt/.venv/",
+            "module": "fastapi-asgi",
+            "callable": "app"
+        },
+        "flask": {
+            "type": "python",
+            "path": "/opt/",
+            "home": "/opt/.venv/",
+            "module": "flask-wsgi",
+            "callable": "app"
+        }
+    }
+}
